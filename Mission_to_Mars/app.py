@@ -24,7 +24,7 @@ def index():
 # Route that will trigger the scrape function
 @app.route("/scrape")
 def scrape():
-
+    print("something")
     # Run the scrape function
     mars_data = mars_scraper.scrape()
 
@@ -32,7 +32,7 @@ def scrape():
     mongo.db.collection.update({}, mars_data, upsert=True)
 
     # Redirect back to home page
-    return ("scrape successful!")
+    return redirect("/")
 
 
 if __name__ == "__main__":

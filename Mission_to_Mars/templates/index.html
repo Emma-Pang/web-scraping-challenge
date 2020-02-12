@@ -10,18 +10,25 @@
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="jumbotron text-center">
-      <h1>Visit</h1>
-      <p>Mars</p>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
-    </div>
-    <!-- <img src="{{ vacation.sloth_img }}" alt="Sloth"> -->
-    <h2>The most recent Mars info</h2>
-    <h3>Title: {{ mars.article_title }}</h3>
-    <h3>Body: {{ mars.article_body }}</h3>
+
+<div class="container-fluid">
+  <div class="jumbotron text-center">
+    <h1>Visit</h1>
+    <p>Mars</p>
+    <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
   </div>
-  </div>
+  <img src="{{ mars.featured_image_url }}" alt="latest mars image">
+  <h3>Get the latest mars news:</h3>
+  <h4>Title: {{mars.article_title}}</h4>
+  <h4>Body: {{mars.article_body}}</h4>
+</div>
+</div>
+
+  
+
+
+
+
 </body>
 
 </html>
