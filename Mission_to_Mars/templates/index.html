@@ -18,9 +18,12 @@
     <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
   </div>
   <img src="{{ mars.featured_image_url }}" alt="latest mars image">
-  <h3>Get the latest mars news:</h3>
+  <h4>Get the latest Mars News:</h4>
   <h4>Title: {{mars.article_title}}</h4>
-  <h4>Body: {{mars.article_body}}</h4>
+  <h5>Body: {{mars.article_body}}</h5>
+  <br>
+  <h4>Mars Weather</h4>
+  <h5>{{mars.mars_weather}}</h5>
 </div>
 </div>
 

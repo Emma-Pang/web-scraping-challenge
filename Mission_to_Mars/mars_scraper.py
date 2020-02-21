@@ -76,12 +76,57 @@ def scrape():
     mars_weather
     
     #mars facts------------------------------------------------------------
+    marsfacts_url = 'https://space-facts.com/mars/'
+    tables = pd.read_html(marsfacts_url)
+    facts_table=tables[0]
+    facts_table=facts_table.rename(columns={0: "Mars", 1: "Fact"})
+    facts_table=facts_table.set_index('Mars')
+    facts_table
+
+    facts_table.to_html('table.html')
+
+    #Mars Hemispheres------------------------------------------------------------
+    hemispheres_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
+    browser.visit(hemispheres_url) 
+
+    titles=[]
+    mars_hemisphere_urls=[]
+    for x in range(60):
+        html = browser.html
+        soup = BeautifulSoup(html, 'html.parser')
+        # Retrieve all elements that mars hemisphere links
+        hemisphere_data = soup.find_all('div', class_='description')
+        # Iterate through each piece of hemisphere data
+    for data in hemisphere_data:
+        #titles.append(hemisphere_data.find('h3').text)
+        h3 = data.find('h3').text
+        titles.append(h3)
+        each_hemisphere_url = data.find('a', class_='itemLink product-item').get('href')
+        mars_hemisphere_urls.append(each_hemisphere_url)
+
+    hemisphere_photos=[]
+    for url in mars_hemisphere_urls:
+        specific_url = 'https://astrogeology.usgs.gov'+url
+        browser.visit(specific_url)
+        #print(specific_url)
+        html = browser.html
+        soup = BeautifulSoup(html, 'html.parser')
+        hemisphere_photo = 'https://astrogeology.usgs.gov'+ soup.find('img', class_='wide-image').get('src')
+        hemisphere_photos.append(hemisphere_photo)
+
+    img_url_dict2= [{"title": titles[0], "img_url": hemisphere_photos[0]},
+               {"title": titles[1], "img_url": hemisphere_photos[1]},
+               {"title": titles[2], "img_url": hemisphere_photos[2]},
+               {"title": titles[3], "img_url": hemisphere_photos[3]}]
+
+
 
     mars_data = {
         "article_title": article_title,
         "article_body": article_body,
         "featured_image_url": featured_image_url,
-        "mars_weather": mars_weather
+        "mars_weather": mars_weather,
+        "hemisphere_photos":hemisphere_photos
 
 
     }
