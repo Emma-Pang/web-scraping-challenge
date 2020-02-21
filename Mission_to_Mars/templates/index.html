@@ -7,6 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mars Data</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
 </head>
 
 <body>
@@ -17,18 +19,113 @@
     <p>Mars</p>
     <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
   </div>
-  <img src="{{ mars.featured_image_url }}" alt="latest mars image">
-  <h4>Get the latest Mars News:</h4>
-  <h4>Title: {{mars.article_title}}</h4>
-  <h5>Body: {{mars.article_body}}</h5>
-  <br>
-  <h4>Mars Weather</h4>
-  <h5>{{mars.mars_weather}}</h5>
+
+  <!-- <h5><img src= {{mars.hemisphere_photos[0]}}></h5> -->
 </div>
 </div>
+
+
+
+      <!-- Jumbotron -->
+      <div class="container">
+        <div class="row ">
+          <div class="col-lg-8">
+            
+            <div class="jumbotron  bg-white">
+              <div class="container ">
+                <h3 class="text-center">Latest Mars News and Photos</h3>
+                <hr class="my-4">
+                <div class="text-center"><img src="{{ mars.featured_image_url }}" alt="latest mars image" width="400"></div>
+                  <br>
+                <h4>{{mars.article_title}}</h4>
+                  <p>
+                    <small>{{mars.article_body}}</small>
+                  </p>
+
+
+                  <h4>Interesting Facts About Mars</h4>
+                  <table border="1" class="dataframe">
+                    <thead>
+                      <tr style="text-align: right;">
+                        <th>Mars</th>
+                        <th>Facts</th>
+                      </tr>
+
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th>Equatorial Diameter:</th>
+                        <td>6,792 km</td>
+                      </tr>
+                      <tr>
+                        <th>Polar Diameter:</th>
+                        <td>6,752 km</td>
+                      </tr>
+                      <tr>
+                        <th>Mass:</th>
+                        <td>6.39 × 10^23 kg (0.11 Earths)</td>
+                      </tr>
+                      <tr>
+                        <th>Moons:</th>
+                        <td>2 (Phobos &amp; Deimos)</td>
+                      </tr>
+                      <tr>
+                        <th>Orbit Distance:</th>
+                        <td>227,943,824 km (1.38 AU)</td>
+                      </tr>
+                      <tr>
+                        <th>Orbit Period:</th>
+                        <td>687 days (1.9 years)</td>
+                      </tr>
+                      <tr>
+                        <th>Surface Temperature:</th>
+                        <td>-87 to -5 °C</td>
+                      </tr>
+                      <tr>
+                        <th>First Record:</th>
+                        <td>2nd millennium BC</td>
+                      </tr>
+                      <tr>
+                        <th>Recorded By:</th>
+                        <td>Egyptian astronomers</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+
+
+
+
+              </div>
+            </div>
+
+          </div>
+          <div class="col-lg-4">
+
+            <div class="jumbotron  bg-white">
+              <div class="container ">
+                <h4>Current Mars Weather</h4>
+                <h5> {{mars.mars_weather}} </h5>
+                <h4>Hemisphere Photos </h4>
+                <hr class="my-4">
+                
+
+                  <div class="col"> <img src= {{mars.hemisphere_photos[0]}} width="200"> </div>
+                  <div class="col"> <img src= {{mars.hemisphere_photos[1]}} width="200"></div>
+                  <div class="w-100"></div>
+                  <div class="col"> <img src= {{mars.hemisphere_photos[2]}} width="200"></div>
+                  <div class="col"> <img src= {{mars.hemisphere_photos[3]}} width="200"></div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
 
   
-
 
 
 
