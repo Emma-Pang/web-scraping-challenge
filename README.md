@@ -1,6 +1,6 @@
 # Web Scraping Homework - Mission to Mars #
 
-Web application that scrapes various websites for Mars related data, saves it to a MONGO database and then displays that information on a single HTML page.
+Web application that scrapes various websites for Mars related data, saves it to mongodb and then displays that information on a single HTML page.
 
 #### Websites Scraped ####
 * <https://mars.nasa.gov/news>
